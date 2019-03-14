@@ -10,3 +10,14 @@ export const fetchPosts = () => {
         });
     };
 };
+
+export const fetchUsers = (id) => {
+    return async (dispatch) => {
+        const response = await jsonPlaceholder.get(`/users/${id}`);
+
+        dispatch({
+            type: 'FETCH_USERS',
+            payload: response.data
+        });
+    };
+};
